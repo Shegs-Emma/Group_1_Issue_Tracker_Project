@@ -3,15 +3,79 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Issue Tracker</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
+       <div class="container mt-4">
+           <div class="row">
+               <div class="col-md-2 col-xs-2 col-lg-2 col-sm-2"></div>
+               <div class="col-md-8 col-xs-8 col-lg-8 col-sm-8">
+                <h3 class="text-primary"style="margin-left: 90px;"><i class="fa fa-bug" aria-hidden="true"></i> Issue Tracker</h3>
+                
+                <div class="row" >
+                    <div class="col-lg-4 col-md-4 col-sm-8 col-xs-8 form-group ">
+                        <label for="description" class="d-flex d-flex align-items-baseline">Description
+                            <input type="text" class="form-control mb-3" id="describe-input" placeholder="Describe your issue">
+                        </label>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-8 col-xs-8 form-group">
+                        <label class="d-flex d-flex align-items-baseline" for="rating-input">Severity
+                            <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                                <option selected>Choose...</option>
+                                <option value="Low" style="background-color: blue;">Low</option>
+                                <option value="Medium" style="background-color:#ffbf00;">Medium</option>
+                                <option value="High" style="background-color: red;">High</option>
+                              </select>
+                        </label>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-8 col-xs-8 form-group">
+                        <label for="description" class="d-flex d-flex align-items-baseline">Assigned to
+                            <input type="text" class="form-control mb-3" id="assign-input" placeholder="Assignee">
+                        </label>
+                    </div>
+                    <div class="col-auto form-group ">
+                        <button class="btn btn-primary mb-2" id="submit-btn" >Submit</button>
+                    </div>
+                    <div class="table-responsive-md"></div>
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            
+                            <th scope="col-md-8 col-xs-4 col-lg-8 col-sm-4">Staus</th>
+                            <th scope="col-md-8 col-xs-4 col-lg-8 col-sm-4">Issue</th>
+                            <th scope="col-md-8 col-xs-4 col-lg-8 col-sm-4">Severity</th>
+                            <th scope="col-md-8 col-xs-4 col-lg-8 col-sm-4">Assignee</th>
+                            <th scope="col-md-8 col-xs-4 col-lg-8 col-sm-4">Modify</th>
+                            <th scope="col-md-8 col-xs-4 col-lg-8 col-sm-4">Delete</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            
+                            <!-- <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> -->
+                          </tr>
+                          
+                        </tbody>
+                      </table>
+                </div>
+               </div>
+           </div>
+       </div> 
         
-        
-        <script src="jquery.js"></script>
-        <script src="script.js"></script>
     </body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="jquery.js"></script>
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </html>
