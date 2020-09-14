@@ -10,3 +10,6 @@ h3{
 table{
     font-family: 'Times New Roman', Times, serif;
 }
+#delete-btn{
+    margin-left: 30px;
+}
