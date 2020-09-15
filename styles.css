@@ -1,6 +1,6 @@
 label{
     font-family: 'Times New Roman', Times, serif;
-    font-size:medium;
+    font-size: larger;
 }
 
 h3{
@@ -10,6 +10,32 @@ h3{
 table{
     font-family: 'Times New Roman', Times, serif;
 }
-#delete-btn{
-    margin-left: 30px;
+
+.middle input{
+    width: 40%;
+}
+
+
+#inputGroupSelect03{
+    width: 25%;
+    align-self: flex-end;
+}
+
+.middle{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+
+#describe-input{
+    width: 70%;
+}
+
+article{
+    text-align: center;
+}
+
+#myForm{
+    text-align: center;
 }

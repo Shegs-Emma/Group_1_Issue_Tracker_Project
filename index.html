@@ -14,91 +14,64 @@
         <nav class="navbar navbar-light bg-light">
             <span class="navbar-brand mb-0 h1 text-primary"><i class="fa fa-bug" aria-hidden="true"></i> Issue Tracker</span>
         </nav>
-       <div class="container mt-4">
-            
-           <div class="row">
-               <div class="col-md-2 col-xs-2 col-lg-2 col-sm-2"></div>
-               <div class="col-md-8 col-xs-8 col-lg-8 col-sm-8"></div>
-                
-                <div class="row" >
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group ">
-                        <label for="description" class="d-flex d-flex align-items-baseline">Description:
-                            <input type="text" class="form-control mb-3" id="describe-input" placeholder="Describe your issue">
-                        </label>
+
+        <div id="container">
+            <!-- <header>
+                <h3 class="text-success" id="main_header">Issue Tracker App</h3>
+            </header> -->
+            <article class="col-8 mr-auto ml-auto mt-5">
+                <form id="myForm" class="p-1">
+                    <div>
+                        <input type="text" class="form-control mb-3 mr-auto ml-auto" name="description" id="describe-input" placeholder="Describe your issue">
                     </div>
-                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 form-group">
-                        <label for="description" class="d-flex d-flex align-items-baseline">Assigned To:<input type="text" class="form-control mb-3" id="assign-input" placeholder="Assignee">
-                        </label>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-8 col-xs-8 form-group">
-                        <label class="d-flex d-flex align-items-baseline" for="rating-input">Severity
-                            <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
-                                <option selected>Choose...</option>
-                                <option value="Low" class="text-primary">Low</option>
-                                <option value="Medium" class="text-warning">Medium</option>
-                                <option value="High" class="text-danger">High</option>
-                              </select>
-                        </label>
+                    <div class="middle">
+                        <!-- <label for="assign" class="d-flex align-items-baseline mr-2">Assigned To</label> -->
+                        <input type="text" class="form-control" name="assign" id="assign-input" placeholder="Assignee">
+                    
+                    
+                        <!-- <label class="d-flex align-items-baseline ml-5" for="severity">Severity</label> -->
+                        <select class="custom-select ml-5" name="severity" id="inputGroupSelect03" aria-label="Example select with button addon">
+                            <option selected>Choose Severity...</option>
+                            <option value="Low" class="text-primary">Low</option>
+                            <option value="Medium" class="text-warning">Medium</option>
+                            <option value="High" class="text-danger">High</option>
+                        </select>
                     </div>
                     
                     <div class="col form-group justify-content-center d-flex">
-                        <button class="btn btn-primary mb-2" id="submit-btn" >Submit</button>
+                        <button class="btn btn-primary mt-3 mb-5" id="submit-btn" >Submit</button>
                     </div>
-                    <br>
-            <div class="table-responsive-md"></div>
-                
+                </form>
+            </article>
+            <section class="col-10 mr-auto ml-auto mt-1">
                 <table class="table">
                     <thead>
-                      <tr>
-                        <th scope="col-md-8 col-xs-4 col-lg-8 col-sm-4" input type="checkbox">Status</th>
-                        <th scope="col-md-8 col-xs-4 col-lg-8 col-sm-4">Description</th>
-                        <th scope="col-md-8 col-xs-4 col-lg-8 col-sm-4">Severity</th>
-                        <th scope="col-md-8 col-xs-4 col-lg-8 col-sm-4">Assignee</th>
-                        <th scope="col-md-8 col-xs-4 col-lg-8 col-sm-4">Modify</th>
-                        <th scope="col-md-8 col-xs-4 col-lg-8 col-sm-4">Delete</th>
-                      </tr>
+                        <tr>
+                            <th scope="col-md-8 col-xs-4 col-lg-8 col-sm-4">Status</th>
+                            <th scope="col-md-8 col-xs-4 col-lg-8 col-sm-4" id="issueDesc">Description</th>
+                            <th scope="col-md-8 col-xs-4 col-lg-8 col-sm-4" id="issueSev">Severity</th>
+                            <th scope="col-md-8 col-xs-4 col-lg-8 col-sm-4" id="issueAssign">Assignee</th>
+                            <th scope="col-md-8 col-xs-4 col-lg-8 col-sm-4">Modify</th>
+                            <th scope="col-md-8 col-xs-4 col-lg-8 col-sm-4">Delete</th>
+                        </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td i class="far fa-square"></td>
-                        <td>Documentation and examples for Bootstrap’s powerful, responsive navigation header, the navbar.<br> Includes support for branding, navigation, and more, including support for our collapse plugin.</td>
-                        <td>High</td>
-                        <td>Opeyemi Stutern</td>
-                        <td button class="btn btn-success mb-2" id="modify-btn"></button>Modify</td> 
-                        <td button class="btn btn-danger mb-2" id="delete-btn"></button>Delete</td>
-                       </tr>      
-                    </tbody>
-                    <tbody>
-                        <tr>
-                          <td i class="far fa-square"></td>
-                          <td>Includes support for branding, navigation, and more, including support for our collapse plugin.</td>
-                          <td>Low</td>
-                          <td>Manny Stutern</td>
-                          <td button class="btn btn-success mb-2" id="submit-btn"></button>Modify</td> 
-                          <td button class="btn btn-danger mb-2" id="submit-btn"></button>Delete</td>
-                         </tr>      
-                    </tbody>
-                    <tbody>
-                        <tr>
-                          <td i class="far fa-square"></td>
-                          <td>Documentation and examples for Bootstrap’s powerful, responsive navigation header, the navbar.<br> Includes support for branding, navigation, and more, including support for our collapse plugin.</td>
-                          <td>High</td>
-                          <td>Kazeem Stutern</td>
-                          <td button class="btn btn-success mb-2" id="submit-btn"></button>Modify</td> 
-                          <td button class="btn btn-danger mb-2" id="submit-btn"></button>Delete</td>
-                         </tr>      
+                        <!-- <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>Documentation and examples for Bootstrap’s powerful, responsive navigation header, the navbar.<br> Includes support for branding, navigation, and more, including support for our collapse plugin.</td>
+                            <td>High</td>
+                            <td>Opeyemi Stutern</td>
+                            <td> <button class="btn btn-success mb-2" id="modify-btn">Modify</button></td> 
+                            <td> <button class="btn btn-danger mb-2" id="delete-btn">Delete</button></td>
+                        </tr>       -->
                     </tbody>
                 </table>
-                </div>
-               </div>
-           </div>
-       </div> 
-        
+            </section>
+        </div>
+
+
+        <script src="jquery.js"></script>
+        <script src="script.js"></script>
+        <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     </body>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script src="jquery.js"></script>
-    <script src="script.js"></script>
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </html>
