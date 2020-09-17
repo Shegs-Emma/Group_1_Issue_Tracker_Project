@@ -170,7 +170,7 @@ jQuery(function() {
 
         static clearField(){
             $('#describe-input').val('');
-            $('#assign-input').val('');
+            $('#assign-input').val('Choose Assignee...');
             $('#inputGroupSelect03').val('Choose Severity...');
         }
     };
