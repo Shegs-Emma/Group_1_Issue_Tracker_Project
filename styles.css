@@ -1,35 +1,43 @@
-label{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: larger;
-}
+* {
+    box-sizing: border-box;
+  }
+  
 
-h3{
-    font-family: 'Times New Roman', Times, serif;
+#header{
+    font-family: 'Lobster', cursive;
+    font-weight: bold;
 }
 
 table{
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Grandstander', cursive;
+    font-weight: bold;
 }
 
-.middle input{
-    width: 40%;
-}
+
 
 
 #inputGroupSelect03{
-    width: 25%;
+    width:90%;
+    
     align-self: flex-end;
+    
+}
+#assign-input{
+    /* margin-right: 90px; */
+    margin-left: auto;
+    /* width: 90%; */
 }
 
-.middle{
+
+.form-row{
     display: flex;
     flex-direction: row;
     
 }
 
 
-#describe-input{
-    width: 70%;
+#submit-btn{
+    width: 25%;
 }
 
 article{
@@ -38,4 +46,38 @@ article{
 
 #myForm{
     text-align: center;
+}
+
+ @media (max-width: 776px) {
+    
+    #inputGroupSelect03{
+        margin-left: 0;
+    }
+ 
+}
+
+
+
+
+  /* Extra small devices (phones, 600px and down) */
+@media (max-width: 600px) {
+    #inputGroupSelect03{
+        margin-left: 0;
+        width: 90%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media (min-width: 600px) {
+    #inputGroupSelect03{
+        margin-left: 0;
+
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (min-width: 768px) {
+    #inputGroupSelect03{
+        margin-left: 0;
+    }
 }
