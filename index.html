@@ -8,33 +8,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@100&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans+Condensed:wght@300&display=swap&family=Grandstander:wght@100&display=swap&family=Josefin+Slab:wght@900&display=swap&family=Acme&display=swap" rel="stylesheet" />
+        <!-- <link href="https://fonts.googleapis.com/css2?" rel="stylesheet" /> -->
         <!-- <link  rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css" /> -->
     </head>
-    <body>
+    <body class="container-fluid">
         <!-- As a heading -->
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-light bg-light mt-1">
             <span class="navbar-brand mb-0 h1 text-primary" id="header"><i class="fa fa-bug" aria-hidden="true"></i> Issue Tracker</span>
         </nav>
 
-        <div id="container">
+        <div class="container-fluid">
             <!-- <header>
                 <h3 class="text-success" id="main_header">Issue Tracker App</h3>
             </header> -->
-            <article class="col-md-8 mr-auto ml-auto mt-5">
+            <article class="col-12 col-md-8 mr-auto ml-auto mt-5">
                 <form id="myForm" class="p-1">
                     <div>
                         <input type="text" autocomplete="off" class="form-control mb-3 mr-auto ml-auto" name="description" id="describe-input" placeholder="Describe your issue" />
                     </div>
                     <div class="middle">
-                        <!-- <label for="assign" class="d-flex align-items-baseline mr-2">Assigned To</label> -->
-                        <input type="text" autocomplete="off" class="form-control" name="assign" id="assign-input" placeholder="Assignee" />
-                    
-                        <input type="text" class="form-control mb-3 mr-auto ml-auto" name="description" id="describe-input" placeholder="Describe your issue" autocomplete="off" />
-                    
-                        <div class="form-row">
-                            <div class="col-md-6 mb-3 mr-10">
+                        <div class="row mySty">
+                            <div class="col-12 col-md-5 mb-3">
                                 <select class="custom-select ml-5" name="assignee" id="assign-input" aria-label="Example select with button addon" autocomplete="off">
                                     <option selected>Choose Assignee...</option>
                                     <option value="Emmanuel">Emmanuel</option>
@@ -44,7 +39,7 @@
                                 </select>
                                 <!-- <input type="text" class="form-control" name="assign" id="assign-input" placeholder="Assignee" autocomplete="off"> -->
                             </div>
-                            <div class="col-md-6 mb-3 ml-10">
+                            <div class="col-12 col-md-5 mb-3">
                                 <select class="custom-select ml-5" name="severity" id="inputGroupSelect03" aria-label="Example select with button addon" autocomplete="off">
                                     <option selected>Choose Severity...</option>
                                     <option value="Low" class="text-primary">Low</option>
@@ -57,12 +52,12 @@
                     
                         
                     </div>    
-                        <div class="col form-group justify-content-center d-flex">
+                        <div class="col-12 form-group justify-content-center myBtn">
                             <button class="btn btn-primary mt-3 mb-5" id="submit-btn" >Submit</button>
                         </div>
                 </form>
             </article>
-            <div class="table-responsive">
+            <div class="col-12 myTbl">
                 <table class="table">
                     <thead>
                         <tr>

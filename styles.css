@@ -1,7 +1,6 @@
-* {
-    box-sizing: border-box;
-  }
-  
+body{
+    margin: 0px;
+}
 
 #header{
     font-family: 'Lobster', cursive;
@@ -13,19 +12,9 @@ table{
     font-weight: bold;
 }
 
-
-
-
-#inputGroupSelect03{
-    width:90%;
-    
-    align-self: flex-end;
-    
-}
-#assign-input{
-    /* margin-right: 90px; */
-    margin-left: auto;
-    /* width: 90%; */
+.mySty select{
+    position: relative;
+    left: 10px;
 }
 
 
@@ -37,7 +26,7 @@ table{
 
 
 #submit-btn{
-    width: 25%;
+    width: 50%;
 }
 
 article{
@@ -48,36 +37,28 @@ article{
     text-align: center;
 }
 
- @media (max-width: 776px) {
-    
-    #inputGroupSelect03{
-        margin-left: 0;
-    }
- 
+.myTbl{
+    overflow-x: auto;
 }
 
-
-
-
-  /* Extra small devices (phones, 600px and down) */
-@media (max-width: 600px) {
-    #inputGroupSelect03{
-        margin-left: 0;
-        width: 90%;
-    }
+th{
+    color: rgb(71, 67, 70);
+    font-family: 'Josefin Slab', serif;
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media (min-width: 600px) {
-    #inputGroupSelect03{
-        margin-left: 0;
+@media (max-width: 767px){
+    .mySty select{
+        position: relative;
+        left: -50px;
+    }
 
+    .myBtn{
+        width: 50%;
     }
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media (min-width: 768px) {
-    #inputGroupSelect03{
-        margin-left: 0;
+@media (min-width: 767px){
+    .myBtn{
+        width: 10%;
     }
 }
