@@ -57,6 +57,21 @@ jQuery(function() {
             localStorage.setItem('issues', JSON.stringify(issues));
         };
 
+        static modifyIssue(id, item, location) {
+            const issues = Store.getIssues();
+
+            issues.forEach((issue, index) => {
+                if(issue.issueID == id && location === 1){
+                   issue.issueDesc = item;
+                } else if(issue.issueID == id && location === 2){
+                    issue.issueSeverity = item;
+                } else if(issue.issueID == id && location === 3){
+                    issue.assignedTo = item;
+                }
+            });
+            localStorage.setItem('issues', JSON.stringify(issues));
+        };
+
         static deleteIssue($el){
             const issues = Store.getIssues();
 
@@ -137,6 +152,7 @@ jQuery(function() {
             };
         };
 
+
         static deleteIssue($el){
             if($el.hasClass('delete')){
                 $el.parent().parent().remove();
@@ -168,6 +184,62 @@ jQuery(function() {
             
         }
 
+        static modify($el){
+            if($el.hasClass('modify')){
+
+                Store.modifyIssue(2869867);
+                
+                let $issDes = $el.parent().prev().prev().prev().text();
+                let $issSeve = $el.parent().prev().prev().text();
+                let $assignTo = $el.parent().prev().text();
+                let element = $el.parent().prev().prev().prev().attr('id');
+                
+                if($issDes || $issSeve || $assignTo){
+                    var $descInputField = $(`<input type="text" value=${$issDes} />`);
+                    var $severInputField = $(`<input type="text" value=${$issSeve} />`);
+                    var $assignInputField = $(`<input type="text" value=${$assignTo} />`);
+
+                    $el.parent().prev().prev().prev().html($descInputField);
+                    $el.parent().prev().prev().html($severInputField);
+                    $el.parent().prev().html($assignInputField);
+
+                    var $issueLocation = $el.parent().prev().prev().prev();
+                    var $severityLocation = $el.parent().prev().prev();
+                    var $assignee = $el.parent().prev();
+
+                    // $descInputField.focus();
+
+                    //Concerning the issue Description
+                    myBlurer($descInputField, $issueLocation, element, 1);
+                    keyMonitor($descInputField, $issueLocation, element, 1);
+
+                    //Concerning the issue Severity
+                    myBlurer($severInputField, $severityLocation, element, 2);
+                    keyMonitor($severInputField, $severityLocation, element, 2);
+
+                    //Concerning the asignee
+                    myBlurer($assignInputField, $assignee, element, 3);
+                    keyMonitor($assignInputField, $assignee, element, 3);
+                }
+            }
+
+            function myBlurer($item, $method, id, index){
+                $item.blur(function(){
+                    $method.html($item.val());
+                    Store.modifyIssue(id, $item.val(), index);
+                });
+            }
+
+            function keyMonitor($item, $method, id, index){
+                $item.keypress(function(e){
+                    if(e.keyCode === 13){
+                        $method.html($item.val());
+                        Store.modifyIssue(id, $item.val(), index);
+                    }
+                });
+            }
+        }
+
         static clearField(){
             $('#describe-input').val('');
             $('#assign-input').val('Choose Assignee...');
@@ -192,7 +264,6 @@ jQuery(function() {
 
         // Instatiate a Task
         const issue  = new Issue(issueID, $myIssueDesc, $issueSeverity, $myIssueAssign);
-        console.log(issue);
 
         // Add Task to the UI
         UI.addIssueToList(issue);
@@ -215,6 +286,9 @@ jQuery(function() {
 
         //The Open checker
         UI.checker($(e.target));
+
+        //The Modify handler
+        UI.modify($(e.target));
     });
 
 

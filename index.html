@@ -8,8 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@100&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@100&display=swap" rel="stylesheet" />
+        <!-- <link  rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css" /> -->
     </head>
     <body>
         <!-- As a heading -->
@@ -23,8 +24,14 @@
             </header> -->
             <article class="col-md-8 mr-auto ml-auto mt-5">
                 <form id="myForm" class="p-1">
+                    <div>
+                        <input type="text" autocomplete="off" class="form-control mb-3 mr-auto ml-auto" name="description" id="describe-input" placeholder="Describe your issue" />
+                    </div>
+                    <div class="middle">
+                        <!-- <label for="assign" class="d-flex align-items-baseline mr-2">Assigned To</label> -->
+                        <input type="text" autocomplete="off" class="form-control" name="assign" id="assign-input" placeholder="Assignee" />
                     
-                        <input type="text" class="form-control mb-3 mr-auto ml-auto" name="description" id="describe-input" placeholder="Describe your issue" autocomplete="off">
+                        <input type="text" class="form-control mb-3 mr-auto ml-auto" name="description" id="describe-input" placeholder="Describe your issue" autocomplete="off" />
                     
                         <div class="form-row">
                             <div class="col-md-6 mb-3 mr-10">
