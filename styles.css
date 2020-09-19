@@ -46,6 +46,15 @@ th{
     font-family: 'Josefin Slab', serif;
 }
 
+.modSelect{
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.modInput{
+    border-radius: 5px;
+}
+
 @media (max-width: 767px){
     .mySty select{
         position: relative;

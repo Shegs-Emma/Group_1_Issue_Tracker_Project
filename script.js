@@ -77,7 +77,6 @@ jQuery(function() {
 
             if($el.hasClass('delete')){
                 let element = $el.parent().prev().prev().prev().prev().attr('id');
-                console.log(element);
                 issues.forEach((issue, index) => {
                     if(issue.issueID == element){
                         issues.splice(index, 1);
@@ -117,39 +116,35 @@ jQuery(function() {
             // Create the Assignee element
             let $myAssigneeCol = $('<td>');
 
-            // Validate the Input
-            if(issue.issueDesc === '' || issue.issueSeverity === '' || issue.assignedTo === ''){
-                showAlert('Please Fill the Input', 'danger');
-            } else {
-                $myDescriptionCol.text(issue.issueDesc);
-                $mySeverityCol.text(issue.issueSeverity);
-                $myAssigneeCol.text(issue.assignedTo);
+            
+            $myDescriptionCol.text(issue.issueDesc);
+            $mySeverityCol.text(issue.issueSeverity);
+            $myAssigneeCol.text(issue.assignedTo);
 
-                if(issue.issueSeverity === 'High'){
-                    $myTableRow.addClass('alert-danger');
-                } else if(issue.issueSeverity === 'Medium'){
-                    $myTableRow.addClass('alert-warning')
-                } else if(issue.issueSeverity === 'Low'){
-                    $myTableRow.addClass('alert-primary')
-                }
+            if(issue.issueSeverity === 'High'){
+                $myTableRow.addClass('alert-danger');
+            } else if(issue.issueSeverity === 'Medium'){
+                $myTableRow.addClass('alert-warning')
+            } else if(issue.issueSeverity === 'Low'){
+                $myTableRow.addClass('alert-primary')
+            }
 
-                // Create the icons
-                let $modifyBtn = $('<td>');
-                $modifyBtn.html('<button type="button" class="btn btn-success mb-2 modify">Modify</button>');
+            // Create the icons
+            let $modifyBtn = $('<td>');
+            $modifyBtn.html('<button type="button" class="btn btn-success mb-2 modify">Modify</button>');
 
-                let $deleteBtn = $('<td>');
-                $deleteBtn.html('<button type="button" class="btn btn-danger mb-2 delete">Delete</button>');
-                
-                // Attachment time!!
-                $myTableRow.append($myCheckboxCol);
-                $myTableRow.append($myDescriptionCol);
-                $myTableRow.append($mySeverityCol);
-                $myTableRow.append($myAssigneeCol);
-                $myTableRow.append($modifyBtn);
-                $myTableRow.append($deleteBtn);
+            let $deleteBtn = $('<td>');
+            $deleteBtn.html('<button type="button" class="btn btn-danger mb-2 delete">Delete</button>');
+            
+            // Attachment time!!
+            $myTableRow.append($myCheckboxCol);
+            $myTableRow.append($myDescriptionCol);
+            $myTableRow.append($mySeverityCol);
+            $myTableRow.append($myAssigneeCol);
+            $myTableRow.append($modifyBtn);
+            $myTableRow.append($deleteBtn);
 
-                $tableBody.append($myTableRow);
-            };
+            $tableBody.append($myTableRow);
         };
 
 
@@ -186,18 +181,31 @@ jQuery(function() {
 
         static modify($el){
             if($el.hasClass('modify')){
-
-                Store.modifyIssue(2869867);
-                
                 let $issDes = $el.parent().prev().prev().prev().text();
                 let $issSeve = $el.parent().prev().prev().text();
                 let $assignTo = $el.parent().prev().text();
                 let element = $el.parent().prev().prev().prev().attr('id');
                 
                 if($issDes || $issSeve || $assignTo){
-                    var $descInputField = $(`<input type="text" value=${$issDes} />`);
-                    var $severInputField = $(`<input type="text" value=${$issSeve} />`);
-                    var $assignInputField = $(`<input type="text" value=${$assignTo} />`);
+                    var $descInputField = $(`<input type="text" class="modInput" value=${$issDes} />`);
+                    var $severInputField = $(`
+                    <select autocomplete="off" class="modSelect">
+                        <option selected>${$issSeve}</option>
+                        <option value="Low" class="text-primary">Low</option>
+                        <option value="Medium" class="text-warning">Medium</option>
+                        <option value="High" class="text-danger">High</option>
+                    </select>
+                    
+                    `);
+                    var $assignInputField = $(`
+                    <select autocomplete="off" class="modSelect">
+                        <option selected>${$assignTo}</option>
+                        <option value="Emmanuel">Emmanuel</option>
+                        <option value="Opeyemi">Opeyemi</option>
+                        <option value="Kazeem">Kazeem</option>
+                        <option value="Tubi">Tubi</option>
+                    </select>
+                    `);
 
                     $el.parent().prev().prev().prev().html($descInputField);
                     $el.parent().prev().prev().html($severInputField);
@@ -262,17 +270,22 @@ jQuery(function() {
         let $issueSeverity = $('#inputGroupSelect03').val();
         let issueID = GenRandom.Job();
 
-        // Instatiate a Task
-        const issue  = new Issue(issueID, $myIssueDesc, $issueSeverity, $myIssueAssign);
+        // Validate the Input
+        if($myIssueDesc === '' || $myIssueAssign === 'Choose Assignee...' || $issueSeverity === 'Choose Severity...'){
+            showAlert('Please Fill in the Input', 'danger');
+        } else {
+            // Instatiate a Task
+            const issue  = new Issue(issueID, $myIssueDesc, $issueSeverity, $myIssueAssign);
 
-        // Add Task to the UI
-        UI.addIssueToList(issue);
+            // Add Task to the UI
+            UI.addIssueToList(issue);
 
-        // Add Task to Local storage
-        Store.addIssues(issue);
+            // Add Task to Local storage
+            Store.addIssues(issue);
 
-        // Clear the UI
-        UI.clearField();
+            // Clear the UI
+            UI.clearField();
+        }
     });
 
 
@@ -306,3 +319,4 @@ jQuery(function() {
         setTimeout(() => $('.alert').remove(), 2000);
     };
 });
+
